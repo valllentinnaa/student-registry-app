@@ -30,6 +30,7 @@ jobs:
 
   deploy-to-render:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: build-test
     steps:
     - name: Deploy to production
