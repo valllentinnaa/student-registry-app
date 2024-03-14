@@ -26,3 +26,12 @@ jobs:
       run: npm install
     - name: Run integration tests
       run: npm test
+
+  deploy-to-render:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to production
+      uses: johnbeynon/render-deploy-action@v0.0.8
+      with:
+        service-id: ${{ secrets.RENDER_UNIQUE_SERVICE_NAME }}
+        api-key: ${{ secrets.RENDER_UNIQUE_API_KEY }}
